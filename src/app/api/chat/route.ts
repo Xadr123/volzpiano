@@ -1,10 +1,12 @@
 import OpenAI from "openai";
 import { NextRequest } from "next/server";
 
-const client = new OpenAI({
-  apiKey: process.env.GROQ_API_KEY,
-  baseURL: "https://api.groq.com/openai/v1",
-});
+function getClient() {
+  return new OpenAI({
+    apiKey: process.env.GROQ_API_KEY,
+    baseURL: "https://api.groq.com/openai/v1",
+  });
+}
 
 // ─── System Prompt ────────────────────────────────────────────────────────────
 
@@ -121,7 +123,7 @@ export async function POST(req: NextRequest) {
     async start(controller) {
       const encoder = new TextEncoder();
       try {
-        const completion = await client.chat.completions.create({
+        const completion = await getClient().chat.completions.create({
           model: "llama-3.1-8b-instant",
           max_tokens: 1024,
           stream: true,
