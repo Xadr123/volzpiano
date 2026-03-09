@@ -316,7 +316,19 @@ export default function BrainSection() {
   const result = getResult();
 
   return (
-    <section ref={sectionRef} className="bg-zinc-900 py-20 sm:py-28 lg:py-32">
+    <section ref={sectionRef} className="relative bg-zinc-900 py-20 sm:py-28 lg:py-32">
+      {/* Wavy top divider */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] -translate-y-[1px]">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[50px] sm:h-[70px]">
+          <path d="M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,0 L0,0 Z" fill="#faf7f2" />
+        </svg>
+      </div>
+      {/* Wavy bottom divider */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] translate-y-[1px] rotate-180">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[50px] sm:h-[70px]">
+          <path d="M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,0 L0,0 Z" fill="#faf7f2" />
+        </svg>
+      </div>
       <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-20">
         {/* Header */}
         <div
@@ -345,7 +357,7 @@ export default function BrainSection() {
           }}
         >
           {/* Left — Quiz */}
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm">
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-sm">
             {/* Progress bar */}
             {started && !showResult && (
               <div className="absolute top-0 left-0 h-1 w-full bg-white/10">

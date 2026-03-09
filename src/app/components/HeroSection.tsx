@@ -31,8 +31,8 @@ export default function HeroSection() {
         }`}
       />
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60" />
+      {/* Dark Overlay — warmer gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/45 to-zinc-900/70" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-32 sm:px-12 lg:px-20">
@@ -150,7 +150,7 @@ export default function HeroSection() {
           >
             <a
               href="#schedule"
-              className="inline-block rounded-full bg-cta px-10 py-4 text-lg font-bold text-white shadow-lg transition-all duration-200 hover:bg-cta-hover hover:shadow-xl hover:-translate-y-0.5"
+              className="inline-block rounded-full bg-cta px-10 py-4 text-lg font-bold text-white shadow-xl transition-all duration-300 hover:bg-cta-hover hover:shadow-2xl hover:-translate-y-1"
             >
               Schedule a Call
             </a>

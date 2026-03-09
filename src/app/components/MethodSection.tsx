@@ -72,7 +72,7 @@ export default function MethodSection() {
     <>
       <section
         ref={sectionRef}
-        className="bg-zinc-50 py-20 sm:py-28 lg:py-32"
+        className="bg-cream py-20 sm:py-28 lg:py-32"
       >
         <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-20">
           <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
@@ -81,7 +81,7 @@ export default function MethodSection() {
               {learningPaths.map((path, i) => (
                 <div
                   key={path.label}
-                  className={`group relative overflow-hidden rounded-2xl border ${path.borderColor} bg-gradient-to-r ${path.color} p-6 sm:p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5`}
+                  className={`group relative overflow-hidden rounded-3xl border ${path.borderColor} bg-gradient-to-r ${path.color} p-6 sm:p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5`}
                   style={{
                     opacity: visible ? 1 : 0,
                     transform: visible ? "translateX(0)" : "translateX(-40px)",
@@ -176,7 +176,7 @@ export default function MethodSection() {
               >
                 <a
                   href="#schedule"
-                  className="inline-block rounded-full bg-cta px-10 py-4 text-lg font-bold text-white shadow-lg transition-all duration-200 hover:bg-cta-hover hover:shadow-xl hover:-translate-y-0.5"
+                  className="inline-block rounded-full bg-cta px-10 py-4 text-lg font-bold text-white shadow-xl transition-all duration-300 hover:bg-cta-hover hover:shadow-2xl hover:-translate-y-1"
                 >
                   Schedule a Call
                 </a>

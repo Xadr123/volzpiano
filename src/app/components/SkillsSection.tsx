@@ -81,7 +81,7 @@ export default function SkillsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white py-20 sm:py-28 lg:py-32">
+    <section ref={sectionRef} className="bg-cream py-20 sm:py-28 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-20">
         {/* Header */}
         <div
@@ -115,7 +115,7 @@ export default function SkillsSection() {
             return (
               <div
                 key={skill.label}
-                className="relative cursor-pointer overflow-hidden rounded-2xl transition-all duration-500 ease-in-out"
+                className="relative cursor-pointer overflow-hidden rounded-3xl transition-all duration-500 ease-in-out"
                 style={{ flex: isActive ? 4 : 1 }}
                 onMouseEnter={() => setActive(i)}
                 onClick={() => setActive(i)}

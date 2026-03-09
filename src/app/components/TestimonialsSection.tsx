@@ -59,7 +59,7 @@ export default function TestimonialsSection() {
 
   return (
     <>
-      <section ref={sectionRef} className="bg-zinc-50 py-20 sm:py-28 lg:py-32">
+      <section ref={sectionRef} className="bg-cream py-20 sm:py-28 lg:py-32">
         <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-20">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
             {/* ── Left — Copy + Video buttons ── */}
@@ -109,7 +109,7 @@ export default function TestimonialsSection() {
                   <button
                     key={i}
                     onClick={() => setActiveVideo(video.embedUrl)}
-                    className="group flex items-center gap-4 rounded-2xl border border-zinc-200 bg-white px-6 py-4 shadow-sm transition-all duration-300 hover:border-orange-brand/40 hover:shadow-lg hover:-translate-y-0.5"
+                    className="group flex items-center gap-4 rounded-3xl border border-zinc-200/60 bg-white/80 backdrop-blur-sm px-6 py-4 shadow-sm transition-all duration-300 hover:border-orange-brand/40 hover:shadow-lg hover:-translate-y-0.5"
                   >
                     {/* Play circle */}
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-brand text-white shadow-md transition-transform duration-300 group-hover:scale-110">
@@ -135,7 +135,7 @@ export default function TestimonialsSection() {
               {testimonials.map((t, i) => (
                 <div
                   key={i}
-                  className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white p-7 shadow-sm transition-all duration-300 hover:border-orange-brand/30 hover:shadow-lg"
+                  className="group relative overflow-hidden rounded-3xl border border-zinc-200/60 bg-white/80 backdrop-blur-sm p-7 shadow-sm transition-all duration-300 hover:border-orange-brand/30 hover:shadow-lg"
                   style={{
                     opacity: visible ? 1 : 0,
                     transform: visible ? "translateX(0)" : "translateX(30px)",

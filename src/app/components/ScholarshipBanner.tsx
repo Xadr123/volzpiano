@@ -100,8 +100,18 @@ export default function ScholarshipBanner() {
   return (
     <section ref={ref} className="relative overflow-hidden bg-zinc-900 py-20 sm:py-28">
       {/* Accent lines */}
-      <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-transparent via-orange-brand to-transparent" />
-      <div className="absolute bottom-0 left-0 h-[2px] w-full bg-gradient-to-r from-transparent via-orange-brand to-transparent" />
+      {/* Wavy top */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] -translate-y-[1px]">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[50px] sm:h-[70px]">
+          <path d="M0,60 C300,120 600,0 900,60 C1050,90 1150,40 1200,60 L1200,0 L0,0 Z" fill="#faf7f2" />
+        </svg>
+      </div>
+      {/* Wavy bottom */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] translate-y-[1px] rotate-180">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[50px] sm:h-[70px]">
+          <path d="M0,60 C300,120 600,0 900,60 C1050,90 1150,40 1200,60 L1200,0 L0,0 Z" fill="#faf7f2" />
+        </svg>
+      </div>
 
       {/* Background glow */}
       <div
@@ -181,7 +191,7 @@ export default function ScholarshipBanner() {
 
         <a
           href="#schedule"
-          className="inline-block rounded-full bg-cta px-10 py-4 text-lg font-bold text-white shadow-lg transition-all duration-200 hover:bg-cta-hover hover:shadow-xl hover:-translate-y-0.5"
+          className="inline-block rounded-full bg-cta px-10 py-4 text-lg font-bold text-white shadow-xl transition-all duration-300 hover:bg-cta-hover hover:shadow-2xl hover:-translate-y-1"
         >
           Learn More
         </a>

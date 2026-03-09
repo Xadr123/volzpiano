@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #ffffff;
-  --color-foreground: #171717;
+  --color-background: #faf7f2;
+  --color-foreground: #2d2a26;
+  --color-cream: #faf7f2;
+  --color-cream-dark: #f3ede4;
+  --color-blush: #fdf2ee;
+  --color-warm-gray: #f5f0ea;
   --color-orange-brand: #f27a1a;
   --color-orange-brand-hover: #e06610;
   --color-cta: #1d4ed8;
@@ -106,5 +110,14 @@ body {
   100% {
     transform: translateY(-120%) translateX(0);
     opacity: 0;
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
   }
 }

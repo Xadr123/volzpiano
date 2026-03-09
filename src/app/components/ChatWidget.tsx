@@ -11,25 +11,46 @@ interface Message {
   isStreaming?: boolean;
 }
 
+// ─── Quick Action Buttons ─────────────────────────────────────────────────────
+
+interface QuickAction {
+  label: string;
+  message: string;
+}
+
+const INITIAL_ACTIONS: QuickAction[] = [
+  { label: "How does it work?", message: "How do Volz Method piano lessons work?" },
+  { label: "What does it cost?", message: "How much do piano lessons cost?" },
+  { label: "The Volz Method", message: "What makes the Volz Method different from regular piano lessons?" },
+  { label: "Schedule a free call", message: "I'd like to schedule a free consultation call." },
+];
+
+const FOLLOW_UP_ACTIONS: QuickAction[] = [
+  { label: "Tell me about pricing", message: "What does pricing look like?" },
+  { label: "How are teachers trained?", message: "How are your teachers trained?" },
+  { label: "What ages do you teach?", message: "What age should my child be to start?" },
+  { label: "Schedule a free call", message: "I'd like to schedule a free consultation." },
+];
+
 // ─── Page-Specific Proactive Messages ────────────────────────────────────────
 
 function getProactiveMessage(pathname: string): string {
   if (pathname === "/volz-method/how-it-works") {
-    return "Looking at how lessons work? I can help you understand pricing or get you scheduled for a free consultation!";
+    return "Looking at how lessons work? I can walk you through everything \u2014 pricing, scheduling, or what a first lesson looks like!";
   }
   if (pathname === "/testimonials") {
-    return "Seeing what other families think? I can answer any questions you have or help you get started!";
+    return "Love hearing from other families? I can help you get started or answer any questions!";
   }
   if (pathname === "/digital-piano-deal") {
-    return "Looking for a digital piano? I can answer questions about getting started or help you find the right fit!";
+    return "Looking for a digital piano? I can help you figure out what you need to get started!";
   }
   if (pathname.startsWith("/blog/")) {
-    return "Great article! Have questions about starting piano lessons for your child?";
+    return "Great read! Have questions about starting piano lessons for your child? I\u2019m here to help.";
   }
   if (pathname === "/volz-method" || pathname === "/volz-method/core-values") {
-    return "Want to know more about the Volz Method? I can explain anything or help you schedule a free call!";
+    return "Curious about the Volz Method? I can explain how it works or help you schedule a free call!";
   }
-  return "Hi! I\u2019m here to help with any questions about Volz Method Piano Lessons. Want to know about pricing, how lessons work, or how to get started?";
+  return "Hi! I\u2019m here to help you find the perfect piano lessons for your child. What would you like to know?";
 }
 
 // ─── Markdown Link Renderer ───────────────────────────────────────────────────
@@ -83,6 +104,33 @@ function TypingIndicator() {
   );
 }
 
+// ─── Quick Action Buttons Component ───────────────────────────────────────────
+
+function QuickActions({
+  actions,
+  onSelect,
+  disabled,
+}: {
+  actions: QuickAction[];
+  onSelect: (message: string) => void;
+  disabled: boolean;
+}) {
+  return (
+    <div className="flex flex-wrap gap-1.5 px-3 py-2">
+      {actions.map((action) => (
+        <button
+          key={action.label}
+          onClick={() => onSelect(action.message)}
+          disabled={disabled}
+          className="rounded-full border border-orange-brand/30 bg-orange-brand/10 px-3 py-1.5 text-xs font-semibold text-orange-brand transition-all duration-200 hover:bg-orange-brand/20 hover:border-orange-brand/50 disabled:opacity-40 disabled:cursor-not-allowed active:scale-95 cursor-pointer"
+        >
+          {action.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 // ─── Main Widget ──────────────────────────────────────────────────────────────
 
 export default function ChatWidget() {
@@ -93,6 +141,7 @@ export default function ChatWidget() {
   const [isStreaming, setIsStreaming] = useState(false);
   const [proactiveShown, setProactiveShown] = useState(false);
   const [proactiveDismissed, setProactiveDismissed] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -103,11 +152,15 @@ export default function ChatWidget() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // Focus input when panel opens
+  // Show welcome message and focus input when panel opens
   useEffect(() => {
     if (isOpen) {
+      if (messages.length === 0) {
+        setMessages([{ role: "assistant", content: getProactiveMessage(pathname) }]);
+      }
       setTimeout(() => inputRef.current?.focus(), 100);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   // Proactive bubble: show after 2s delay on each page change
@@ -139,6 +192,7 @@ export default function ChatWidget() {
       const trimmed = content.trim();
       if (!trimmed || isStreaming) return;
 
+      setHasInteracted(true);
       abortRef.current?.abort();
       abortRef.current = new AbortController();
 
@@ -236,6 +290,10 @@ export default function ChatWidget() {
     }
   };
 
+  // Which quick actions to show
+  const quickActions = hasInteracted ? FOLLOW_UP_ACTIONS : INITIAL_ACTIONS;
+  const showQuickActions = !isStreaming && messages.length > 0 && (messages[messages.length - 1]?.role === "assistant" && !messages[messages.length - 1]?.isStreaming);
+
   // ─── Render ───────────────────────────────────────────────────────────────────
 
   return (
@@ -297,7 +355,7 @@ export default function ChatWidget() {
         <div
           className="fixed bottom-24 right-6 z-50 flex flex-col w-80 rounded-2xl border border-white/10 bg-zinc-900 shadow-2xl overflow-hidden"
           style={{
-            height: "480px",
+            height: "520px",
             animation: "fadeScaleIn 0.2s ease-out",
             transformOrigin: "bottom right",
           }}
@@ -321,14 +379,6 @@ export default function ChatWidget() {
 
           {/* Messages */}
           <div className="flex-1 overflow-y-auto px-3 py-3 flex flex-col gap-2">
-            {messages.length === 0 && (
-              <div className="text-center py-8 px-4">
-                <p className="text-white/40 text-sm">
-                  Ask me anything about piano lessons, pricing, or getting started!
-                </p>
-              </div>
-            )}
-
             {messages.map((msg, i) => (
               <div
                 key={i}
@@ -352,6 +402,17 @@ export default function ChatWidget() {
 
             <div ref={messagesEndRef} />
           </div>
+
+          {/* Quick Action Buttons */}
+          {showQuickActions && (
+            <div className="border-t border-white/5 flex-shrink-0">
+              <QuickActions
+                actions={quickActions}
+                onSelect={sendMessage}
+                disabled={isStreaming}
+              />
+            </div>
+          )}
 
           {/* Input Area */}
           <div className="border-t border-white/10 px-3 py-3 bg-zinc-950 flex-shrink-0">

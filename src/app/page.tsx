@@ -4,6 +4,7 @@ import MethodSection from "./components/MethodSection";
 import SkillsSection from "./components/SkillsSection";
 import BrainSection from "./components/BrainSection";
 import ResultsSection from "./components/ResultsSection";
+import InteractiveKeyboard from "./components/InteractiveKeyboard";
 import ScholarshipBanner from "./components/ScholarshipBanner";
 import TestimonialsSection from "./components/TestimonialsSection";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <SkillsSection />
       <BrainSection />
       <ResultsSection />
+      <InteractiveKeyboard />
       <ScholarshipBanner />
       <TestimonialsSection />
     </main>

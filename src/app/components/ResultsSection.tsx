@@ -31,12 +31,12 @@ export default function ResultsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white py-20 sm:py-28 lg:py-32">
+    <section ref={sectionRef} className="bg-cream py-20 sm:py-28 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-20">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left — Photo */}
           <div
-            className="relative overflow-hidden rounded-3xl"
+            className="relative overflow-hidden rounded-[2rem]"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateX(0)" : "translateX(-30px)",
@@ -141,7 +141,7 @@ export default function ResultsSection() {
             >
               <a
                 href="#schedule"
-                className="inline-block rounded-full bg-cta px-10 py-4 text-lg font-bold text-white shadow-lg transition-all duration-200 hover:bg-cta-hover hover:shadow-xl hover:-translate-y-0.5"
+                className="inline-block rounded-full bg-cta px-10 py-4 text-lg font-bold text-white shadow-xl transition-all duration-300 hover:bg-cta-hover hover:shadow-2xl hover:-translate-y-1"
               >
                 Schedule a Call
               </a>
