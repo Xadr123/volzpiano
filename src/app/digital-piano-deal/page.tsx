@@ -239,7 +239,7 @@ export default function DigitalPianoDealPage() {
           >
             Here is the list of items that we would{" "}
             <span
-              className="text-brand"
+              className="text-orange-brand"
               style={{ textShadow: "0 0 40px rgba(99,67,212,0.5)" }}
             >
               recommend you buy!
@@ -276,7 +276,7 @@ export default function DigitalPianoDealPage() {
         <div className="mx-auto max-w-5xl px-6 sm:px-12">
           <div className="text-center mb-14">
             <h2 className="text-3xl font-extrabold text-zinc-900 sm:text-4xl">
-              Our Top <span className="text-brand">Picks</span>
+              Our Top <span className="text-orange-brand">Picks</span>
             </h2>
             <p className="mt-4 text-lg text-zinc-500 max-w-xl mx-auto">
               Products are coming soon. Check back shortly for our full list of recommended keyboards, accessories, and learning materials.

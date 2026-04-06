@@ -136,7 +136,7 @@ export default function ScholarshipBanner() {
                 : "none",
             }}
           >
-            <Icon className={`${size} text-brand drop-shadow-[0_0_8px_rgba(99,67,212,0.6)]`} />
+            <Icon className={`${size} text-orange-brand drop-shadow-[0_0_8px_rgba(99,67,212,0.6)]`} />
           </div>
         ))}
       </div>
@@ -155,7 +155,7 @@ export default function ScholarshipBanner() {
                 : "none",
             }}
           >
-            <Icon className={`${size} text-brand drop-shadow-[0_0_8px_rgba(99,67,212,0.6)]`} />
+            <Icon className={`${size} text-orange-brand drop-shadow-[0_0_8px_rgba(99,67,212,0.6)]`} />
           </div>
         ))}
       </div>
@@ -170,11 +170,11 @@ export default function ScholarshipBanner() {
         }}
       >
         {/* Badge */}
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-5 py-2">
-          <svg viewBox="0 0 20 20" className="h-5 w-5 text-brand" fill="currentColor">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-orange-brand/30 bg-orange-brand/10 px-5 py-2">
+          <svg viewBox="0 0 20 20" className="h-5 w-5 text-orange-brand" fill="currentColor">
             <path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.5L10 13.77l-4.94 2.34.94-5.5-4-3.9 5.61-.87L10 1z" />
           </svg>
-          <span className="text-sm font-bold uppercase tracking-wider text-brand">
+          <span className="text-sm font-bold uppercase tracking-wider text-orange-brand">
             Now Accepted
           </span>
         </div>

@@ -316,7 +316,7 @@ export default function BrainSection() {
   const result = getResult();
 
   return (
-    <section ref={sectionRef} className="relative bg-zinc-900 py-20 sm:py-28 lg:py-32">
+    <section ref={sectionRef} className="relative py-20 sm:py-28 lg:py-32" style={{ background: "linear-gradient(135deg, #1a1035 0%, #2d1b69 30%, #6343d4 70%, #7c5ce7 100%)" }}>
       {/* Wavy top divider */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] -translate-y-[1px]">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[50px] sm:h-[70px]">

@@ -7,10 +7,10 @@
   --color-cream-dark: #f3ede4;
   --color-blush: #fdf2ee;
   --color-warm-gray: #f5f0ea;
-  --color-brand: #6343d4;
-  --color-brand-hover: #5234b0;
+  --color-orange-brand: #6343d4;
+  --color-orange-brand-hover: #5235b8;
   --color-cta: #6343d4;
-  --color-cta-hover: #5234b0;
+  --color-cta-hover: #5235b8;
   --font-sans: var(--font-inter);
 }
 

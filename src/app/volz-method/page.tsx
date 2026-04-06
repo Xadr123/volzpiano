@@ -54,7 +54,7 @@ function PianoKeysAnimation({ visible }: { visible: boolean }) {
             width: `${w}%`,
             height: pressedKeys.has(keyIdx) ? "88%" : "90%",
             background: pressedKeys.has(keyIdx)
-              ? "linear-gradient(to bottom, #6343d4, #5234b0)"
+              ? "linear-gradient(to bottom, #6343d4, #5235b8)"
               : "linear-gradient(to bottom, #fafafa, #e5e5e5)",
             borderRadius: "0 0 6px 6px",
             boxShadow: pressedKeys.has(keyIdx)
@@ -76,7 +76,7 @@ function PianoKeysAnimation({ visible }: { visible: boolean }) {
             left: `${(leftOffset - 0.3) * w}%`,
             top: 0,
             background: pressedKeys.has(keyIdx)
-              ? "linear-gradient(to bottom, #6343d4, #4a2da0)"
+              ? "linear-gradient(to bottom, #6343d4, #4a2fa6)"
               : "linear-gradient(to bottom, #222, #111)",
             borderRadius: "0 0 4px 4px",
             boxShadow: pressedKeys.has(keyIdx)
@@ -197,7 +197,7 @@ function MethodBlock({
 
           <div className="relative z-10 px-8 py-16 sm:px-12 lg:px-16 xl:px-24 max-w-xl">
             <span
-              className="mb-4 block text-xs font-bold uppercase tracking-[0.2em] text-brand"
+              className="mb-4 block text-xs font-bold uppercase tracking-[0.2em] text-orange-brand"
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? "translateY(0)" : "translateY(16px)",
@@ -221,7 +221,7 @@ function MethodBlock({
             </h2>
 
             <div
-              className="mb-8 h-1 w-16 rounded-full bg-brand"
+              className="mb-8 h-1 w-16 rounded-full bg-orange-brand"
               style={{
                 transform: visible ? "scaleX(1)" : "scaleX(0)",
                 transformOrigin: "left",
@@ -298,7 +298,7 @@ export default function VolzMethodPage() {
             <span className="relative inline-block">
               <span className="relative z-10">Volz Method</span>
               <span
-                className="absolute bottom-1 left-0 h-3 w-full bg-brand/30 -z-0 rounded-sm"
+                className="absolute bottom-1 left-0 h-3 w-full bg-orange-brand/30 -z-0 rounded-sm"
                 style={{
                   transform: visible ? "scaleX(1)" : "scaleX(0)",
                   transformOrigin: "left",
