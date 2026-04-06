@@ -97,9 +97,9 @@ function PianoKeysHero({ visible }: { visible: boolean }) {
 
         // Glow effect
         if (glow > 0.05) {
-          ctx.shadowColor = `rgba(242, 122, 26, ${glow * 0.8})`;
+          ctx.shadowColor = `rgba(99, 67, 212, ${glow * 0.8})`;
           ctx.shadowBlur = 30 * glow;
-          ctx.strokeStyle = `rgba(242, 122, 26, ${glow * 0.6})`;
+          ctx.strokeStyle = `rgba(99, 67, 212, ${glow * 0.6})`;
           ctx.lineWidth = 2;
           ctx.stroke();
           ctx.shadowBlur = 0;
@@ -162,9 +162,9 @@ function PianoKeysHero({ visible }: { visible: boolean }) {
           ctx.fill();
 
           if (bGlow > 0.05) {
-            ctx.shadowColor = `rgba(242, 122, 26, ${bGlow * 0.6})`;
+            ctx.shadowColor = `rgba(99, 67, 212, ${bGlow * 0.6})`;
             ctx.shadowBlur = 20 * bGlow;
-            ctx.strokeStyle = `rgba(242, 122, 26, ${bGlow * 0.4})`;
+            ctx.strokeStyle = `rgba(99, 67, 212, ${bGlow * 0.4})`;
             ctx.lineWidth = 1.5;
             ctx.stroke();
             ctx.shadowBlur = 0;
@@ -194,59 +194,6 @@ function PianoKeysHero({ visible }: { visible: boolean }) {
 }
 
 /* ═══════════════════════════════════════════
-   Footer CTA Banner
-   ═══════════════════════════════════════════ */
-function FooterBanner() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) { setVisible(true); observer.disconnect(); }
-    }, { threshold: 0.15 });
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-  return (
-    <footer ref={sectionRef} className="relative overflow-hidden bg-zinc-950">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-64 w-[600px] rounded-full opacity-15 blur-[120px]"
-        style={{ background: "radial-gradient(circle, #f27a1a 0%, transparent 70%)" }} />
-      <div className="relative border-b border-white/5 py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-6 sm:px-12">
-          <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-between sm:items-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl max-w-lg"
-              style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "all 0.7s ease-out" }}>
-              Schedule a Call to{" "}<span className="text-orange-brand">Enroll Today!</span>
-            </h2>
-            <a href="#schedule"
-              className="group inline-flex items-center gap-3 rounded-full bg-orange-brand px-10 py-5 text-lg font-bold text-white shadow-lg shadow-orange-brand/25 transition-all duration-300 hover:bg-orange-brand-hover hover:shadow-xl hover:-translate-y-0.5"
-              style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)", transition: "all 0.7s ease-out 0.15s" }}>
-              Schedule a Call
-              <svg className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div className="relative py-8">
-        <div className="mx-auto max-w-7xl px-6 sm:px-12">
-          <div className="flex flex-col items-center gap-5 sm:flex-row sm:justify-between">
-            <a href="#teach" className="inline-flex items-center gap-2 rounded-full bg-cta px-7 py-3 text-sm font-bold text-white transition-all duration-200 hover:bg-cta-hover hover:-translate-y-0.5">
-              Teach with us! Click here
-            </a>
-            <div className="flex items-center gap-6">
-              <a href="#privacy" className="text-sm text-white/40 hover:text-white/70 transition-colors">Privacy Policy</a>
-              <span className="text-white/10">|</span>
-              <span className="text-sm text-white/30">&copy; {new Date().getFullYear()} Volz Method Piano Lessons</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-/* ═══════════════════════════════════════════
    Page
    ═══════════════════════════════════════════ */
 export default function DigitalPianoDealPage() {
@@ -270,20 +217,20 @@ export default function DigitalPianoDealPage() {
         {/* Subtle orange center glow */}
         <div
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-[700px] rounded-full blur-[140px] z-[1]"
-          style={{ background: "radial-gradient(circle, rgba(242,122,26,0.18) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(99,67,212,0.18) 0%, transparent 70%)" }}
         />
 
         {/* Content */}
         <div className="relative z-[2] text-center px-6 max-w-4xl mx-auto">
           {/* Badge */}
           <div
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-orange-brand/30 bg-orange-brand/10 px-5 py-2"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-5 py-2"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(16px)", transition: "all 0.6s ease-out 0.1s" }}
           >
-            <svg className="h-4 w-4 text-orange-brand" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="h-4 w-4 text-brand" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 1l2.928 5.934 6.546.952-4.737 4.617 1.118 6.515L10 15.897l-5.855 3.121 1.118-6.515L.526 7.886l6.546-.952L10 1z" clipRule="evenodd" />
             </svg>
-            <span className="text-sm font-bold text-orange-brand">Recommended by Volz Method Teachers</span>
+            <span className="text-sm font-bold text-brand">Recommended by Volz Method Teachers</span>
           </div>
 
           <h1
@@ -292,8 +239,8 @@ export default function DigitalPianoDealPage() {
           >
             Here is the list of items that we would{" "}
             <span
-              className="text-orange-brand"
-              style={{ textShadow: "0 0 40px rgba(242,122,26,0.5)" }}
+              className="text-brand"
+              style={{ textShadow: "0 0 40px rgba(99,67,212,0.5)" }}
             >
               recommend you buy!
             </span>
@@ -329,7 +276,7 @@ export default function DigitalPianoDealPage() {
         <div className="mx-auto max-w-5xl px-6 sm:px-12">
           <div className="text-center mb-14">
             <h2 className="text-3xl font-extrabold text-zinc-900 sm:text-4xl">
-              Our Top <span className="text-orange-brand">Picks</span>
+              Our Top <span className="text-brand">Picks</span>
             </h2>
             <p className="mt-4 text-lg text-zinc-500 max-w-xl mx-auto">
               Products are coming soon. Check back shortly for our full list of recommended keyboards, accessories, and learning materials.
@@ -349,7 +296,6 @@ export default function DigitalPianoDealPage() {
         </div>
       </section>
 
-      <FooterBanner />
     </main>
   );
 }

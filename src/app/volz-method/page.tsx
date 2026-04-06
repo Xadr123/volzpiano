@@ -54,11 +54,11 @@ function PianoKeysAnimation({ visible }: { visible: boolean }) {
             width: `${w}%`,
             height: pressedKeys.has(keyIdx) ? "88%" : "90%",
             background: pressedKeys.has(keyIdx)
-              ? "linear-gradient(to bottom, #f27a1a, #e06610)"
+              ? "linear-gradient(to bottom, #6343d4, #5234b0)"
               : "linear-gradient(to bottom, #fafafa, #e5e5e5)",
             borderRadius: "0 0 6px 6px",
             boxShadow: pressedKeys.has(keyIdx)
-              ? "0 0 20px rgba(242,122,26,0.6), 0 0 40px rgba(242,122,26,0.3), inset 0 -2px 4px rgba(0,0,0,0.15)"
+              ? "0 0 20px rgba(99,67,212,0.6), 0 0 40px rgba(99,67,212,0.3), inset 0 -2px 4px rgba(0,0,0,0.15)"
               : "inset 0 -4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.2)",
             transform: pressedKeys.has(keyIdx) ? "translateY(3px)" : "translateY(0)",
             opacity: visible ? 1 : 0,
@@ -76,11 +76,11 @@ function PianoKeysAnimation({ visible }: { visible: boolean }) {
             left: `${(leftOffset - 0.3) * w}%`,
             top: 0,
             background: pressedKeys.has(keyIdx)
-              ? "linear-gradient(to bottom, #f27a1a, #c45a08)"
+              ? "linear-gradient(to bottom, #6343d4, #4a2da0)"
               : "linear-gradient(to bottom, #222, #111)",
             borderRadius: "0 0 4px 4px",
             boxShadow: pressedKeys.has(keyIdx)
-              ? "0 0 16px rgba(242,122,26,0.7), 0 0 32px rgba(242,122,26,0.3)"
+              ? "0 0 16px rgba(99,67,212,0.7), 0 0 32px rgba(99,67,212,0.3)"
               : "0 3px 6px rgba(0,0,0,0.4), inset 0 -2px 3px rgba(0,0,0,0.3)",
             transform: pressedKeys.has(keyIdx) ? "translateY(2px)" : "translateY(0)",
             zIndex: 2,
@@ -197,7 +197,7 @@ function MethodBlock({
 
           <div className="relative z-10 px-8 py-16 sm:px-12 lg:px-16 xl:px-24 max-w-xl">
             <span
-              className="mb-4 block text-xs font-bold uppercase tracking-[0.2em] text-orange-brand"
+              className="mb-4 block text-xs font-bold uppercase tracking-[0.2em] text-brand"
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? "translateY(0)" : "translateY(16px)",
@@ -221,7 +221,7 @@ function MethodBlock({
             </h2>
 
             <div
-              className="mb-8 h-1 w-16 rounded-full bg-orange-brand"
+              className="mb-8 h-1 w-16 rounded-full bg-brand"
               style={{
                 transform: visible ? "scaleX(1)" : "scaleX(0)",
                 transformOrigin: "left",
@@ -250,7 +250,7 @@ function MethodBlock({
               }}
             >
               <a
-                href="#schedule"
+                href="/schedule-call"
                 className="inline-block rounded-full bg-cta px-10 py-4 text-lg font-bold text-white shadow-lg transition-all duration-200 hover:bg-cta-hover hover:shadow-xl hover:-translate-y-0.5"
               >
                 Schedule a Call
@@ -282,7 +282,7 @@ export default function VolzMethodPage() {
         <PianoKeysAnimation visible={visible} />
         <div
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-[500px] rounded-full opacity-25 blur-[120px] z-[1]"
-          style={{ background: "radial-gradient(circle, #f27a1a 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #6343d4 0%, transparent 70%)" }}
         />
         <div className="relative z-[2] text-center px-6">
           <h1
@@ -298,7 +298,7 @@ export default function VolzMethodPage() {
             <span className="relative inline-block">
               <span className="relative z-10">Volz Method</span>
               <span
-                className="absolute bottom-1 left-0 h-3 w-full bg-orange-brand/30 -z-0 rounded-sm"
+                className="absolute bottom-1 left-0 h-3 w-full bg-brand/30 -z-0 rounded-sm"
                 style={{
                   transform: visible ? "scaleX(1)" : "scaleX(0)",
                   transformOrigin: "left",

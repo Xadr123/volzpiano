@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:volzpiano.com)",
+      "Bash(xargs -0 grep -l '`')"
+    ]
+  }
+}

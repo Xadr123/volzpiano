@@ -89,9 +89,9 @@ function BrainDiagram({
             style={{
               filter:
                 leftStrong || balanced
-                  ? "drop-shadow(0 0 24px rgba(242,122,26,0.5))"
+                  ? "drop-shadow(0 0 24px rgba(99,67,212,0.5))"
                   : leftActive
-                  ? "drop-shadow(0 0 12px rgba(242,122,26,0.3))"
+                  ? "drop-shadow(0 0 12px rgba(99,67,212,0.3))"
                   : "none",
               opacity: rightStrong && !balanced ? 0.3 : 1,
             }}
@@ -100,11 +100,11 @@ function BrainDiagram({
               d="M155 140c0-65-25-110-65-125C50 30 20 70 20 140s30 110 70 125c40-15 65-60 65-125z"
               fill={
                 leftActive
-                  ? "rgba(242,122,26,0.2)"
+                  ? "rgba(99,67,212,0.2)"
                   : "rgba(255,255,255,0.05)"
               }
               stroke={
-                leftActive ? "#f27a1a" : "rgba(255,255,255,0.15)"
+                leftActive ? "#6343d4" : "rgba(255,255,255,0.15)"
               }
               strokeWidth="2"
               className="transition-all duration-700"
@@ -114,7 +114,7 @@ function BrainDiagram({
               d="M140 50c-20 10-45 25-60 45M140 100c-15 5-40 15-55 25M140 155c-20 0-45 10-60 20M140 210c-15-5-40 5-55 15"
               fill="none"
               stroke={
-                leftActive ? "rgba(242,122,26,0.4)" : "rgba(255,255,255,0.08)"
+                leftActive ? "rgba(99,67,212,0.4)" : "rgba(255,255,255,0.08)"
               }
               strokeWidth="1.5"
               strokeLinecap="round"
@@ -123,11 +123,11 @@ function BrainDiagram({
             {/* Left analytical icons */}
             <g style={{ opacity: leftActive ? 1 : 0.2 }} className="transition-opacity duration-700">
               {/* Grid */}
-              <rect x="55" y="75" width="28" height="28" rx="3" stroke={leftActive ? "#f27a1a" : "#fff"} strokeWidth="1.5" fill="none" />
-              <path d="M55 89h28M69 75v28" stroke={leftActive ? "#f27a1a" : "#fff"} strokeWidth="1" />
+              <rect x="55" y="75" width="28" height="28" rx="3" stroke={leftActive ? "#6343d4" : "#fff"} strokeWidth="1.5" fill="none" />
+              <path d="M55 89h28M69 75v28" stroke={leftActive ? "#6343d4" : "#fff"} strokeWidth="1" />
               {/* Calculator */}
-              <rect x="45" y="165" width="24" height="30" rx="3" stroke={leftActive ? "#f27a1a" : "#fff"} strokeWidth="1.5" fill="none" />
-              <path d="M49 175h16M49 180h16M49 185h16" stroke={leftActive ? "#f27a1a" : "#fff"} strokeWidth="1" />
+              <rect x="45" y="165" width="24" height="30" rx="3" stroke={leftActive ? "#6343d4" : "#fff"} strokeWidth="1.5" fill="none" />
+              <path d="M49 175h16M49 180h16M49 185h16" stroke={leftActive ? "#6343d4" : "#fff"} strokeWidth="1" />
             </g>
           </g>
 
@@ -137,9 +137,9 @@ function BrainDiagram({
             style={{
               filter:
                 rightStrong || balanced
-                  ? "drop-shadow(0 0 24px rgba(242,122,26,0.5))"
+                  ? "drop-shadow(0 0 24px rgba(99,67,212,0.5))"
                   : rightActive
-                  ? "drop-shadow(0 0 12px rgba(242,122,26,0.3))"
+                  ? "drop-shadow(0 0 12px rgba(99,67,212,0.3))"
                   : "none",
               opacity: leftStrong && !balanced ? 0.3 : 1,
             }}
@@ -148,11 +148,11 @@ function BrainDiagram({
               d="M165 140c0-65 25-110 65-125 40 15 70 55 70 125s-30 110-70 125c-40-15-65-60-65-125z"
               fill={
                 rightActive
-                  ? "rgba(242,122,26,0.2)"
+                  ? "rgba(99,67,212,0.2)"
                   : "rgba(255,255,255,0.05)"
               }
               stroke={
-                rightActive ? "#f27a1a" : "rgba(255,255,255,0.15)"
+                rightActive ? "#6343d4" : "rgba(255,255,255,0.15)"
               }
               strokeWidth="2"
               className="transition-all duration-700"
@@ -162,7 +162,7 @@ function BrainDiagram({
               d="M180 50c20 10 45 25 60 45M180 100c15 5 40 15 55 25M180 155c20 0 45 10 60 20M180 210c15-5 40 5 55 15"
               fill="none"
               stroke={
-                rightActive ? "rgba(242,122,26,0.4)" : "rgba(255,255,255,0.08)"
+                rightActive ? "rgba(99,67,212,0.4)" : "rgba(255,255,255,0.08)"
               }
               strokeWidth="1.5"
               strokeLinecap="round"
@@ -171,14 +171,14 @@ function BrainDiagram({
             {/* Right creative icons */}
             <g style={{ opacity: rightActive ? 1 : 0.2 }} className="transition-opacity duration-700">
               {/* Palette */}
-              <circle cx="250" cy="85" r="15" stroke={rightActive ? "#f27a1a" : "#fff"} strokeWidth="1.5" fill="none" />
-              <circle cx="244" cy="80" r="3" fill={rightActive ? "#f27a1a" : "rgba(255,255,255,0.3)"} />
-              <circle cx="256" cy="80" r="3" fill={rightActive ? "#f27a1a" : "rgba(255,255,255,0.3)"} />
-              <circle cx="250" cy="92" r="3" fill={rightActive ? "#f27a1a" : "rgba(255,255,255,0.3)"} />
+              <circle cx="250" cy="85" r="15" stroke={rightActive ? "#6343d4" : "#fff"} strokeWidth="1.5" fill="none" />
+              <circle cx="244" cy="80" r="3" fill={rightActive ? "#6343d4" : "rgba(255,255,255,0.3)"} />
+              <circle cx="256" cy="80" r="3" fill={rightActive ? "#6343d4" : "rgba(255,255,255,0.3)"} />
+              <circle cx="250" cy="92" r="3" fill={rightActive ? "#6343d4" : "rgba(255,255,255,0.3)"} />
               {/* Music note */}
-              <path d="M248 170v-20l14-5v16" stroke={rightActive ? "#f27a1a" : "#fff"} strokeWidth="1.5" strokeLinecap="round" fill="none" />
-              <circle cx="245" cy="170" r="4" stroke={rightActive ? "#f27a1a" : "#fff"} strokeWidth="1.5" fill="none" />
-              <circle cx="259" cy="161" r="4" stroke={rightActive ? "#f27a1a" : "#fff"} strokeWidth="1.5" fill="none" />
+              <path d="M248 170v-20l14-5v16" stroke={rightActive ? "#6343d4" : "#fff"} strokeWidth="1.5" strokeLinecap="round" fill="none" />
+              <circle cx="245" cy="170" r="4" stroke={rightActive ? "#6343d4" : "#fff"} strokeWidth="1.5" fill="none" />
+              <circle cx="259" cy="161" r="4" stroke={rightActive ? "#6343d4" : "#fff"} strokeWidth="1.5" fill="none" />
             </g>
           </g>
 
@@ -190,7 +190,7 @@ function BrainDiagram({
         <div className="absolute top-4 left-4 sm:left-8">
           <span
             className="text-xl font-extrabold uppercase transition-colors duration-500 sm:text-2xl"
-            style={{ color: leftActive ? "#f27a1a" : "rgba(255,255,255,0.4)" }}
+            style={{ color: leftActive ? "#6343d4" : "rgba(255,255,255,0.4)" }}
           >
             Left<br />Brain
           </span>
@@ -198,7 +198,7 @@ function BrainDiagram({
         <div className="absolute top-4 right-4 text-right sm:right-8">
           <span
             className="text-xl font-extrabold uppercase transition-colors duration-500 sm:text-2xl"
-            style={{ color: rightActive ? "#f27a1a" : "rgba(255,255,255,0.4)" }}
+            style={{ color: rightActive ? "#6343d4" : "rgba(255,255,255,0.4)" }}
           >
             Right<br />Brain
           </span>
@@ -220,7 +220,7 @@ function BrainDiagram({
             >
               <span
                 className="text-sm font-bold transition-colors duration-500"
-                style={{ color: leftActive ? "#f27a1a" : "rgba(255,255,255,0.4)" }}
+                style={{ color: leftActive ? "#6343d4" : "rgba(255,255,255,0.4)" }}
               >
                 {s.icon}
               </span>
@@ -252,7 +252,7 @@ function BrainDiagram({
               </span>
               <span
                 className="text-sm font-bold transition-colors duration-500"
-                style={{ color: rightActive ? "#f27a1a" : "rgba(255,255,255,0.4)" }}
+                style={{ color: rightActive ? "#6343d4" : "rgba(255,255,255,0.4)" }}
               >
                 {s.icon}
               </span>
@@ -362,7 +362,7 @@ export default function BrainSection() {
             {started && !showResult && (
               <div className="absolute top-0 left-0 h-1 w-full bg-white/10">
                 <div
-                  className="h-full bg-orange-brand transition-all duration-500 ease-out"
+                  className="h-full bg-brand transition-all duration-500 ease-out"
                   style={{
                     width: `${((currentQ + (answers.length > currentQ ? 1 : 0)) / questions.length) * 100}%`,
                   }}
@@ -374,8 +374,8 @@ export default function BrainSection() {
               {/* Start Screen */}
               {!started && !showResult && (
                 <div className="flex flex-col items-center py-6 text-center">
-                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-brand/15">
-                    <svg viewBox="0 0 24 24" className="h-8 w-8 text-orange-brand" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand/15">
+                    <svg viewBox="0 0 24 24" className="h-8 w-8 text-brand" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                       <path d="M9 19V6l12-3v13M6 19a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                     </svg>
                   </div>
@@ -385,7 +385,7 @@ export default function BrainSection() {
                   </p>
                   <button
                     onClick={() => setStarted(true)}
-                    className="rounded-full bg-orange-brand px-8 py-3.5 text-lg font-bold text-white shadow-lg transition-all duration-200 hover:bg-orange-brand-hover hover:shadow-xl hover:-translate-y-0.5"
+                    className="rounded-full bg-brand px-8 py-3.5 text-lg font-bold text-white shadow-lg transition-all duration-200 hover:bg-brand-hover hover:shadow-xl hover:-translate-y-0.5"
                   >
                     Start the Quiz
                   </button>
@@ -395,7 +395,7 @@ export default function BrainSection() {
               {/* Question */}
               {started && !showResult && (
                 <div>
-                  <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-orange-brand">
+                  <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-brand">
                     Question {currentQ + 1} of {questions.length}
                   </p>
                   <h3
@@ -410,10 +410,10 @@ export default function BrainSection() {
                       <button
                         key={option.label}
                         onClick={() => handleAnswer(option.side)}
-                        className="group rounded-xl border border-white/10 bg-white/5 p-4 text-left text-base font-medium text-white transition-all duration-200 hover:border-orange-brand/50 hover:bg-orange-brand/10 sm:text-lg"
+                        className="group rounded-xl border border-white/10 bg-white/5 p-4 text-left text-base font-medium text-white transition-all duration-200 hover:border-brand/50 hover:bg-brand/10 sm:text-lg"
                       >
                         <span className="flex items-center gap-3">
-                          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-white/20 text-sm font-bold text-white/50 transition-all duration-200 group-hover:border-orange-brand group-hover:bg-orange-brand group-hover:text-white">
+                          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-white/20 text-sm font-bold text-white/50 transition-all duration-200 group-hover:border-brand group-hover:bg-brand group-hover:text-white">
                             {option.side === "left" ? "A" : "B"}
                           </span>
                           {option.label}
@@ -427,7 +427,7 @@ export default function BrainSection() {
               {/* Result */}
               {showResult && (
                 <div style={{ animation: "fadeSlideIn 0.5s ease-out" }}>
-                  <p className="mb-1 text-sm font-bold uppercase tracking-wider text-orange-brand">
+                  <p className="mb-1 text-sm font-bold uppercase tracking-wider text-brand">
                     Your child is a
                   </p>
                   <h3 className="mb-1 text-2xl font-extrabold text-white sm:text-3xl">
@@ -439,7 +439,7 @@ export default function BrainSection() {
                     {result.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="rounded-full bg-orange-brand/15 px-4 py-1.5 text-sm font-bold text-orange-brand"
+                        className="rounded-full bg-brand/15 px-4 py-1.5 text-sm font-bold text-brand"
                       >
                         {skill}
                       </span>
@@ -455,7 +455,7 @@ export default function BrainSection() {
                   </p>
                   <div className="flex flex-wrap items-center gap-3">
                     <a
-                      href="#schedule"
+                      href="/schedule-call"
                       className="rounded-full bg-cta px-8 py-3.5 text-base font-bold text-white shadow-lg transition-all duration-200 hover:bg-cta-hover hover:shadow-xl hover:-translate-y-0.5"
                     >
                       Schedule a Call
