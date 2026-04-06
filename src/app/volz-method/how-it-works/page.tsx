@@ -480,7 +480,7 @@ export default function HowItWorksPage() {
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-[500px] rounded-full opacity-20 blur-[120px] z-[1]"
           style={{
             background:
-              "radial-gradient(circle, #f27a1a 0%, transparent 70%)",
+              "radial-gradient(circle, #6343d4 0%, transparent 70%)",
           }}
         />
 

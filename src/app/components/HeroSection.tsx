@@ -71,7 +71,7 @@ export default function HeroSection() {
               >
                 <path
                   d="M2 5.5C20 2.5 40 1.5 60 3.5C80 5.5 100 4 118 2.5"
-                  stroke="#f27a1a"
+                  stroke="#6343d4"
                   strokeWidth="3"
                   strokeLinecap="round"
                   style={{

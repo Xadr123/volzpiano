@@ -209,7 +209,7 @@ function FooterBanner() {
   return (
     <footer ref={sectionRef} className="relative overflow-hidden bg-zinc-950">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-64 w-[600px] rounded-full opacity-15 blur-[120px]"
-        style={{ background: "radial-gradient(circle, #f27a1a 0%, transparent 70%)" }} />
+        style={{ background: "radial-gradient(circle, #6343d4 0%, transparent 70%)" }} />
       <div className="relative border-b border-white/5 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-6 sm:px-12">
           <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-between sm:items-center">
@@ -270,7 +270,7 @@ export default function DigitalPianoDealPage() {
         {/* Subtle orange center glow */}
         <div
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-[700px] rounded-full blur-[140px] z-[1]"
-          style={{ background: "radial-gradient(circle, rgba(242,122,26,0.18) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(99,67,212,0.18) 0%, transparent 70%)" }}
         />
 
         {/* Content */}
@@ -293,7 +293,7 @@ export default function DigitalPianoDealPage() {
             Here is the list of items that we would{" "}
             <span
               className="text-orange-brand"
-              style={{ textShadow: "0 0 40px rgba(242,122,26,0.5)" }}
+              style={{ textShadow: "0 0 40px rgba(99,67,212,0.5)" }}
             >
               recommend you buy!
             </span>

@@ -89,9 +89,9 @@ function BrainDiagram({
             style={{
               filter:
                 leftStrong || balanced
-                  ? "drop-shadow(0 0 24px rgba(242,122,26,0.5))"
+                  ? "drop-shadow(0 0 24px rgba(99,67,212,0.5))"
                   : leftActive
-                  ? "drop-shadow(0 0 12px rgba(242,122,26,0.3))"
+                  ? "drop-shadow(0 0 12px rgba(99,67,212,0.3))"
                   : "none",
               opacity: rightStrong && !balanced ? 0.3 : 1,
             }}
@@ -100,11 +100,11 @@ function BrainDiagram({
               d="M155 140c0-65-25-110-65-125C50 30 20 70 20 140s30 110 70 125c40-15 65-60 65-125z"
               fill={
                 leftActive
-                  ? "rgba(242,122,26,0.2)"
+                  ? "rgba(99,67,212,0.2)"
                   : "rgba(255,255,255,0.05)"
               }
               stroke={
-                leftActive ? "#f27a1a" : "rgba(255,255,255,0.15)"
+                leftActive ? "#6343d4" : "rgba(255,255,255,0.15)"
               }
               strokeWidth="2"
               className="transition-all duration-700"
@@ -114,7 +114,7 @@ function BrainDiagram({
               d="M140 50c-20 10-45 25-60 45M140 100c-15 5-40 15-55 25M140 155c-20 0-45 10-60 20M140 210c-15-5-40 5-55 15"
               fill="none"
               stroke={
-                leftActive ? "rgba(242,122,26,0.4)" : "rgba(255,255,255,0.08)"
+                leftActive ? "rgba(99,67,212,0.4)" : "rgba(255,255,255,0.08)"
               }
               strokeWidth="1.5"
               strokeLinecap="round"
@@ -123,11 +123,11 @@ function BrainDiagram({
             {/* Left analytical icons */}
             <g style={{ opacity: leftActive ? 1 : 0.2 }} className="transition-opacity duration-700">
               {/* Grid */}
-              <rect x="55" y="75" width="28" height="28" rx="3" stroke={leftActive ? "#f27a1a" : "#fff"} strokeWidth="1.5" fill="none" />
-              <path d="M55 89h28M69 75v28" stroke={leftActive ? "#f27a1a" : "#fff"} strokeWidth="1" />
+              <rect x="55" y="75" width="28" height="28" rx="3" stroke={leftActive ? "#6343d4" : "#fff"} strokeWidth="1.5" fill="none" />
+              <path d="M55 89h28M69 75v28" stroke={leftActive ? "#6343d4" : "#fff"} strokeWidth="1" />
               {/* Calculator */}
-              <rect x="45" y="165" width="24" height="30" rx="3" stroke={leftActive ? "#f27a1a" : "#fff"} strokeWidth="1.5" fill="none" />
-              <path d="M49 175h16M49 180h16M49 185h16" stroke={leftActive ? "#f27a1a" : "#fff"} strokeWidth="1" />
+              <rect x="45" y="165" width="24" height="30" rx="3" stroke={leftActive ? "#6343d4" : "#fff"} strokeWidth="1.5" fill="none" />
+              <path d="M49 175h16M49 180h16M49 185h16" stroke={leftActive ? "#6343d4" : "#fff"} strokeWidth="1" />
             </g>
           </g>
 
@@ -137,9 +137,9 @@ function BrainDiagram({
             style={{
               filter:
                 rightStrong || balanced
-                  ? "drop-shadow(0 0 24px rgba(242,122,26,0.5))"
+                  ? "drop-shadow(0 0 24px rgba(99,67,212,0.5))"
                   : rightActive
-                  ? "drop-shadow(0 0 12px rgba(242,122,26,0.3))"
+                  ? "drop-shadow(0 0 12px rgba(99,67,212,0.3))"
                   : "none",
               opacity: leftStrong && !balanced ? 0.3 : 1,
             }}
@@ -148,11 +148,11 @@ function BrainDiagram({
               d="M165 140c0-65 25-110 65-125 40 15 70 55 70 125s-30 110-70 125c-40-15-65-60-65-125z"
               fill={
                 rightActive
-                  ? "rgba(242,122,26,0.2)"
+                  ? "rgba(99,67,212,0.2)"
                   : "rgba(255,255,255,0.05)"
               }
               stroke={
-                rightActive ? "#f27a1a" : "rgba(255,255,255,0.15)"
+                rightActive ? "#6343d4" : "rgba(255,255,255,0.15)"
               }
               strokeWidth="2"
               className="transition-all duration-700"
@@ -162,7 +162,7 @@ function BrainDiagram({
               d="M180 50c20 10 45 25 60 45M180 100c15 5 40 15 55 25M180 155c20 0 45 10 60 20M180 210c15-5 40 5 55 15"
               fill="none"
               stroke={
-                rightActive ? "rgba(242,122,26,0.4)" : "rgba(255,255,255,0.08)"
+                rightActive ? "rgba(99,67,212,0.4)" : "rgba(255,255,255,0.08)"
               }
               strokeWidth="1.5"
               strokeLinecap="round"
@@ -171,14 +171,14 @@ function BrainDiagram({
             {/* Right creative icons */}
             <g style={{ opacity: rightActive ? 1 : 0.2 }} className="transition-opacity duration-700">
               {/* Palette */}
-              <circle cx="250" cy="85" r="15" stroke={rightActive ? "#f27a1a" : "#fff"} strokeWidth="1.5" fill="none" />
-              <circle cx="244" cy="80" r="3" fill={rightActive ? "#f27a1a" : "rgba(255,255,255,0.3)"} />
-              <circle cx="256" cy="80" r="3" fill={rightActive ? "#f27a1a" : "rgba(255,255,255,0.3)"} />
-              <circle cx="250" cy="92" r="3" fill={rightActive ? "#f27a1a" : "rgba(255,255,255,0.3)"} />
+              <circle cx="250" cy="85" r="15" stroke={rightActive ? "#6343d4" : "#fff"} strokeWidth="1.5" fill="none" />
+              <circle cx="244" cy="80" r="3" fill={rightActive ? "#6343d4" : "rgba(255,255,255,0.3)"} />
+              <circle cx="256" cy="80" r="3" fill={rightActive ? "#6343d4" : "rgba(255,255,255,0.3)"} />
+              <circle cx="250" cy="92" r="3" fill={rightActive ? "#6343d4" : "rgba(255,255,255,0.3)"} />
               {/* Music note */}
-              <path d="M248 170v-20l14-5v16" stroke={rightActive ? "#f27a1a" : "#fff"} strokeWidth="1.5" strokeLinecap="round" fill="none" />
-              <circle cx="245" cy="170" r="4" stroke={rightActive ? "#f27a1a" : "#fff"} strokeWidth="1.5" fill="none" />
-              <circle cx="259" cy="161" r="4" stroke={rightActive ? "#f27a1a" : "#fff"} strokeWidth="1.5" fill="none" />
+              <path d="M248 170v-20l14-5v16" stroke={rightActive ? "#6343d4" : "#fff"} strokeWidth="1.5" strokeLinecap="round" fill="none" />
+              <circle cx="245" cy="170" r="4" stroke={rightActive ? "#6343d4" : "#fff"} strokeWidth="1.5" fill="none" />
+              <circle cx="259" cy="161" r="4" stroke={rightActive ? "#6343d4" : "#fff"} strokeWidth="1.5" fill="none" />
             </g>
           </g>
 
@@ -190,7 +190,7 @@ function BrainDiagram({
         <div className="absolute top-4 left-4 sm:left-8">
           <span
             className="text-xl font-extrabold uppercase transition-colors duration-500 sm:text-2xl"
-            style={{ color: leftActive ? "#f27a1a" : "rgba(255,255,255,0.4)" }}
+            style={{ color: leftActive ? "#6343d4" : "rgba(255,255,255,0.4)" }}
           >
             Left<br />Brain
           </span>
@@ -198,7 +198,7 @@ function BrainDiagram({
         <div className="absolute top-4 right-4 text-right sm:right-8">
           <span
             className="text-xl font-extrabold uppercase transition-colors duration-500 sm:text-2xl"
-            style={{ color: rightActive ? "#f27a1a" : "rgba(255,255,255,0.4)" }}
+            style={{ color: rightActive ? "#6343d4" : "rgba(255,255,255,0.4)" }}
           >
             Right<br />Brain
           </span>
@@ -220,7 +220,7 @@ function BrainDiagram({
             >
               <span
                 className="text-sm font-bold transition-colors duration-500"
-                style={{ color: leftActive ? "#f27a1a" : "rgba(255,255,255,0.4)" }}
+                style={{ color: leftActive ? "#6343d4" : "rgba(255,255,255,0.4)" }}
               >
                 {s.icon}
               </span>
@@ -252,7 +252,7 @@ function BrainDiagram({
               </span>
               <span
                 className="text-sm font-bold transition-colors duration-500"
-                style={{ color: rightActive ? "#f27a1a" : "rgba(255,255,255,0.4)" }}
+                style={{ color: rightActive ? "#6343d4" : "rgba(255,255,255,0.4)" }}
               >
                 {s.icon}
               </span>
@@ -316,7 +316,7 @@ export default function BrainSection() {
   const result = getResult();
 
   return (
-    <section ref={sectionRef} className="relative bg-zinc-900 py-20 sm:py-28 lg:py-32">
+    <section ref={sectionRef} className="relative py-20 sm:py-28 lg:py-32" style={{ background: "linear-gradient(135deg, #1a1035 0%, #2d1b69 30%, #6343d4 70%, #7c5ce7 100%)" }}>
       {/* Wavy top divider */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] -translate-y-[1px]">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[50px] sm:h-[70px]">

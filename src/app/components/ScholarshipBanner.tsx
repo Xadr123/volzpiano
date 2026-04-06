@@ -117,7 +117,7 @@ export default function ScholarshipBanner() {
       <div
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-[700px] rounded-full blur-[120px]"
         style={{
-          background: "radial-gradient(circle, #f27a1a 0%, transparent 70%)",
+          background: "radial-gradient(circle, #6343d4 0%, transparent 70%)",
           animation: "pulse-glow 4s ease-in-out infinite",
         }}
       />
@@ -136,7 +136,7 @@ export default function ScholarshipBanner() {
                 : "none",
             }}
           >
-            <Icon className={`${size} text-orange-brand drop-shadow-[0_0_8px_rgba(242,122,26,0.6)]`} />
+            <Icon className={`${size} text-orange-brand drop-shadow-[0_0_8px_rgba(99,67,212,0.6)]`} />
           </div>
         ))}
       </div>
@@ -155,7 +155,7 @@ export default function ScholarshipBanner() {
                 : "none",
             }}
           >
-            <Icon className={`${size} text-orange-brand drop-shadow-[0_0_8px_rgba(242,122,26,0.6)]`} />
+            <Icon className={`${size} text-orange-brand drop-shadow-[0_0_8px_rgba(99,67,212,0.6)]`} />
           </div>
         ))}
       </div>

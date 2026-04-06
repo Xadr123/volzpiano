@@ -103,7 +103,7 @@ export default function ResultsSection() {
                         r="10"
                         className="transition-all duration-500"
                         style={{
-                          fill: visible ? "#f27a1a" : "transparent",
+                          fill: visible ? "#6343d4" : "transparent",
                           transitionDelay: `${0.4 + i * 0.12}s`,
                         }}
                       />

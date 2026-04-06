@@ -37,7 +37,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 z-40 w-full bg-zinc-900/80 backdrop-blur-md border-b border-white/10">
+    <nav className="fixed top-0 left-0 z-40 w-full backdrop-blur-md border-b border-white/10" style={{ background: "linear-gradient(135deg, rgba(26,16,53,0.9) 0%, rgba(45,27,105,0.9) 50%, rgba(99,67,212,0.9) 100%)" }}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-12">
         {/* Logo */}
         <Link href="/" className="text-xl font-extrabold tracking-tight text-white">
@@ -78,7 +78,7 @@ export default function Navbar() {
             </button>
 
             {dropdownOpen && (
-              <div className="absolute top-full left-0 mt-3 w-48 rounded-xl border border-white/10 bg-zinc-900/95 backdrop-blur-md py-2 shadow-xl">
+              <div className="absolute top-full left-0 mt-3 w-48 rounded-xl border border-white/10 backdrop-blur-md py-2 shadow-xl" style={{ background: "linear-gradient(135deg, rgba(26,16,53,0.97) 0%, rgba(45,27,105,0.97) 100%)" }}>
                 {volzMethodLinks.map((link) => (
                   <Link
                     key={link.href}
@@ -123,7 +123,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="border-t border-white/10 bg-zinc-900/95 px-6 pb-6 pt-4 sm:hidden">
+        <div className="border-t border-white/10 px-6 pb-6 pt-4 sm:hidden" style={{ background: "linear-gradient(135deg, rgba(26,16,53,0.97) 0%, rgba(45,27,105,0.97) 50%, rgba(99,67,212,0.97) 100%)" }}>
           <div className="flex flex-col gap-4">
             {topLinks.map((link) => (
               <Link

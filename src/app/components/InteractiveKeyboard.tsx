@@ -188,7 +188,7 @@ export default function InteractiveKeyboard() {
                     onPointerLeave={() => stopNote(key.index)}
                     className={`relative flex-1 rounded-b-xl transition-all duration-100 ${
                       activeNotes.has(key.index)
-                        ? "bg-orange-brand/15 border-2 border-orange-brand/40 shadow-[inset_0_-4px_12px_rgba(242,122,26,0.15)]"
+                        ? "bg-orange-brand/15 border-2 border-orange-brand/40 shadow-[inset_0_-4px_12px_rgba(99,67,212,0.15)]"
                         : "bg-white border-2 border-zinc-200/80 shadow-[0_4px_12px_rgba(0,0,0,0.06)] hover:bg-cream-dark"
                     }`}
                   >

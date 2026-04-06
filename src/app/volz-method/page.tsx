@@ -54,11 +54,11 @@ function PianoKeysAnimation({ visible }: { visible: boolean }) {
             width: `${w}%`,
             height: pressedKeys.has(keyIdx) ? "88%" : "90%",
             background: pressedKeys.has(keyIdx)
-              ? "linear-gradient(to bottom, #f27a1a, #e06610)"
+              ? "linear-gradient(to bottom, #6343d4, #5235b8)"
               : "linear-gradient(to bottom, #fafafa, #e5e5e5)",
             borderRadius: "0 0 6px 6px",
             boxShadow: pressedKeys.has(keyIdx)
-              ? "0 0 20px rgba(242,122,26,0.6), 0 0 40px rgba(242,122,26,0.3), inset 0 -2px 4px rgba(0,0,0,0.15)"
+              ? "0 0 20px rgba(99,67,212,0.6), 0 0 40px rgba(99,67,212,0.3), inset 0 -2px 4px rgba(0,0,0,0.15)"
               : "inset 0 -4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.2)",
             transform: pressedKeys.has(keyIdx) ? "translateY(3px)" : "translateY(0)",
             opacity: visible ? 1 : 0,
@@ -76,11 +76,11 @@ function PianoKeysAnimation({ visible }: { visible: boolean }) {
             left: `${(leftOffset - 0.3) * w}%`,
             top: 0,
             background: pressedKeys.has(keyIdx)
-              ? "linear-gradient(to bottom, #f27a1a, #c45a08)"
+              ? "linear-gradient(to bottom, #6343d4, #4a2fa6)"
               : "linear-gradient(to bottom, #222, #111)",
             borderRadius: "0 0 4px 4px",
             boxShadow: pressedKeys.has(keyIdx)
-              ? "0 0 16px rgba(242,122,26,0.7), 0 0 32px rgba(242,122,26,0.3)"
+              ? "0 0 16px rgba(99,67,212,0.7), 0 0 32px rgba(99,67,212,0.3)"
               : "0 3px 6px rgba(0,0,0,0.4), inset 0 -2px 3px rgba(0,0,0,0.3)",
             transform: pressedKeys.has(keyIdx) ? "translateY(2px)" : "translateY(0)",
             zIndex: 2,
@@ -282,7 +282,7 @@ export default function VolzMethodPage() {
         <PianoKeysAnimation visible={visible} />
         <div
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-[500px] rounded-full opacity-25 blur-[120px] z-[1]"
-          style={{ background: "radial-gradient(circle, #f27a1a 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #6343d4 0%, transparent 70%)" }}
         />
         <div className="relative z-[2] text-center px-6">
           <h1

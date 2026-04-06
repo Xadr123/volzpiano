@@ -337,7 +337,7 @@ export default function ChatWidget() {
         onClick={() => setIsOpen((v) => !v)}
         aria-label={isOpen ? "Close chat" : "Open chat assistant"}
         className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-orange-brand shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-orange-brand-hover hover:-translate-y-0.5 active:scale-95 cursor-pointer"
-        style={{ boxShadow: "0 4px 24px rgba(242,122,26,0.35)" }}
+        style={{ boxShadow: "0 4px 24px rgba(99,67,212,0.35)" }}
       >
         {isOpen ? (
           <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

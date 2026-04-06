@@ -362,7 +362,7 @@ function FooterBanner() {
   return (
     <footer ref={sectionRef} className="relative overflow-hidden bg-zinc-950">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-64 w-[600px] rounded-full opacity-15 blur-[120px]"
-        style={{ background: "radial-gradient(circle, #f27a1a 0%, transparent 70%)" }} />
+        style={{ background: "radial-gradient(circle, #6343d4 0%, transparent 70%)" }} />
       <div className="relative border-b border-white/5 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-6 sm:px-12">
           <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-between sm:items-center">
@@ -414,7 +414,7 @@ export default function AppsVsLessonsBlogPost() {
       {/* ── Hero ── */}
       <section className="relative flex min-h-[45vh] items-center justify-center overflow-hidden bg-zinc-900 pt-24">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-[500px] rounded-full opacity-15 blur-[120px]"
-          style={{ background: "radial-gradient(circle, #f27a1a 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, #6343d4 0%, transparent 70%)" }} />
         <SplitFloatingAnimation visible={visible} />
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/30 via-transparent to-zinc-900 z-[1]" />
 
