@@ -56,16 +56,16 @@ type Note = {
 // Each note drifts from below the hero up to above it on a slow loop, with
 // staggered delays so the screen always has a few notes visible.
 const notes: Note[] = [
-  { Icon: TrebleClef, size: "h-9 w-6", left: "8%", delay: "0s", duration: "16s", startOpacity: 0.18 },
-  { Icon: EighthNote, size: "h-7 w-5", left: "18%", delay: "-3s", duration: "14s", startOpacity: 0.22 },
-  { Icon: QuarterNote, size: "h-8 w-5", left: "28%", delay: "-7s", duration: "18s", startOpacity: 0.16 },
-  { Icon: BeamedNotes, size: "h-9 w-9", left: "38%", delay: "-2s", duration: "15s", startOpacity: 0.2 },
-  { Icon: Sharp, size: "h-6 w-4", left: "47%", delay: "-9s", duration: "17s", startOpacity: 0.14 },
-  { Icon: TrebleClef, size: "h-10 w-7", left: "57%", delay: "-5s", duration: "19s", startOpacity: 0.18 },
-  { Icon: EighthNote, size: "h-8 w-6", left: "67%", delay: "-11s", duration: "16s", startOpacity: 0.22 },
-  { Icon: BeamedNotes, size: "h-7 w-7", left: "77%", delay: "-1s", duration: "14s", startOpacity: 0.18 },
-  { Icon: QuarterNote, size: "h-9 w-6", left: "87%", delay: "-6s", duration: "17s", startOpacity: 0.2 },
-  { Icon: Sharp, size: "h-7 w-5", left: "94%", delay: "-13s", duration: "20s", startOpacity: 0.16 },
+  { Icon: TrebleClef, size: "h-20 w-14", left: "6%", delay: "0s", duration: "16s", startOpacity: 0.55 },
+  { Icon: EighthNote, size: "h-16 w-11", left: "16%", delay: "-3s", duration: "14s", startOpacity: 0.6 },
+  { Icon: QuarterNote, size: "h-20 w-12", left: "27%", delay: "-7s", duration: "18s", startOpacity: 0.5 },
+  { Icon: BeamedNotes, size: "h-20 w-20", left: "38%", delay: "-2s", duration: "15s", startOpacity: 0.55 },
+  { Icon: Sharp, size: "h-14 w-10", left: "48%", delay: "-9s", duration: "17s", startOpacity: 0.45 },
+  { Icon: TrebleClef, size: "h-24 w-16", left: "58%", delay: "-5s", duration: "19s", startOpacity: 0.55 },
+  { Icon: EighthNote, size: "h-20 w-12", left: "68%", delay: "-11s", duration: "16s", startOpacity: 0.6 },
+  { Icon: BeamedNotes, size: "h-16 w-16", left: "78%", delay: "-1s", duration: "14s", startOpacity: 0.55 },
+  { Icon: QuarterNote, size: "h-20 w-14", left: "87%", delay: "-6s", duration: "17s", startOpacity: 0.55 },
+  { Icon: Sharp, size: "h-16 w-10", left: "94%", delay: "-13s", duration: "20s", startOpacity: 0.5 },
 ];
 
 export default function MusicNotesHero() {
@@ -80,9 +80,11 @@ export default function MusicNotesHero() {
           className="absolute bottom-0 text-accent"
           style={{
             left,
+            ["--note-opacity" as string]: startOpacity,
             opacity: startOpacity,
             animation: `floatNoteUp ${duration} linear ${delay} infinite, noteSway ${parseFloat(duration) / 2}s ease-in-out ${delay} infinite alternate`,
-            filter: "drop-shadow(0 0 12px rgba(99, 67, 212, 0.4))",
+            filter:
+              "drop-shadow(0 0 24px rgba(99, 67, 212, 0.85)) drop-shadow(0 0 8px rgba(99, 67, 212, 0.6))",
           }}
         >
           <Icon className={size} />
