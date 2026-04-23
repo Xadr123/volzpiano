@@ -7,6 +7,12 @@ const openPositions = [
     cities: ["Sandy", "Draper", "Cottonwood Heights", "Midvale"],
     employmentType: "Part-time, 1099 contractor",
   },
+  {
+    title: "Experienced In-Home Piano Teacher",
+    pay: "$40–$45 per hour (while teaching)",
+    cities: ["Sandy", "Draper", "Midvale", "Cottonwood Heights"],
+    employmentType: "Part-time, 1099 contractor",
+  },
 ];
 
 export default function TeachingPositionsPage() {
