@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import SmsConsent from "@/app/components/SmsConsent";
 
 const CALENDLY_URL = "https://calendly.com/volz-method-sales/piano_lessons_phone_consultation";
 
@@ -73,6 +74,7 @@ export default function ScheduleCallPage() {
               style={{ height: "800px" }}
             />
           </div>
+          <SmsConsent />
         </div>
       </section>
     </main>

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "@/lib/use-in-view";
 import { useCanvasAnimation } from "@/lib/use-canvas-animation";
+import SmsConsent from "@/app/components/SmsConsent";
 
 /* ═══════════════════════════════════════════
    Rippling Piano Strings Animation (Hero)
@@ -358,23 +359,25 @@ function ScheduleSection() {
             </p>
           </div>
 
-          {/* ── Right — Calendly inline widget ──
+          {/* ── Right — Calendly inline widget + SMS consent ──
               Negative margin on mobile lets the 320px-min-width widget bleed
               all the way to the viewport edge so it never overflows. */}
           <div
-            className="relative -mx-6 overflow-hidden rounded-2xl border border-white/10 bg-white shadow-2xl sm:mx-0"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateY(0)" : "translateY(24px)",
               transition: "all 0.7s ease-out 0.2s",
             }}
           >
-            <iframe
-              src={CALENDLY_URL}
-              title="Schedule a consultation"
-              className="w-full border-0"
-              style={{ height: "820px" }}
-            />
+            <div className="relative -mx-6 overflow-hidden rounded-2xl border border-white/10 bg-white shadow-2xl sm:mx-0">
+              <iframe
+                src={CALENDLY_URL}
+                title="Schedule a consultation"
+                className="w-full border-0"
+                style={{ height: "820px" }}
+              />
+            </div>
+            <SmsConsent />
           </div>
         </div>
       </div>
