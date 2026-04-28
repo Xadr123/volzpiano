@@ -59,7 +59,7 @@ export default function PrivacyPolicyPage() {
                 they appear in singular or plural.
               </p>
               <p>For the purposes of this Privacy Policy:</p>
-              <ul>
+              <ul className="list-disc pl-6 my-4 space-y-1">
                 <li>
                   <strong>Company</strong> (referred to as &quot;the
                   Company&quot;, &quot;We&quot;, &quot;Us&quot; or
@@ -102,7 +102,7 @@ export default function PrivacyPolicyPage() {
                 contact or identify You. This may include, but is not limited
                 to:
               </p>
-              <ul>
+              <ul className="list-disc pl-6 my-4 space-y-1">
                 <li>First and last name</li>
                 <li>Email address</li>
                 <li>Phone number</li>
@@ -115,7 +115,7 @@ export default function PrivacyPolicyPage() {
               <p>
                 The Company may use Personal Data for the following purposes:
               </p>
-              <ul>
+              <ul className="list-disc pl-6 my-4 space-y-1">
                 <li>To provide and maintain our Service</li>
                 <li>To schedule and deliver in-home piano lessons</li>
                 <li>To manage Your Account</li>
@@ -165,7 +165,7 @@ export default function PrivacyPolicyPage() {
               </p>
               <h3>Other Legal Requirements</h3>
               <p>We may disclose data to:</p>
-              <ul>
+              <ul className="list-disc pl-6 my-4 space-y-1">
                 <li>Comply with legal obligations</li>
                 <li>Protect company rights or property</li>
                 <li>Prevent wrongdoing</li>
@@ -204,7 +204,7 @@ export default function PrivacyPolicyPage() {
                 If you have consented to receive SMS messages from Volz Method
                 Piano Lessons, you may receive messages related to:
               </p>
-              <ul>
+              <ul className="list-disc pl-6 my-4 space-y-1">
                 <li>Lesson reminders</li>
                 <li>Scheduling updates</li>
                 <li>Follow-up messages</li>
@@ -241,7 +241,7 @@ export default function PrivacyPolicyPage() {
                 You may opt in to receive SMS messages from Volz Method Piano
                 Lessons in the following ways:
               </p>
-              <ul>
+              <ul className="list-disc pl-6 my-4 space-y-1">
                 <li>Verbally during a phone or in-person conversation</li>
                 <li>By submitting an online form on our website</li>
                 <li>By checking an SMS consent box on a form</li>
@@ -261,7 +261,7 @@ export default function PrivacyPolicyPage() {
                 If you are experiencing issues, reply <strong>HELP</strong> or
                 contact us at:
               </p>
-              <ul>
+              <ul className="list-disc pl-6 my-4 space-y-1">
                 <li>
                   Phone:{" "}
                   <a href="tel:+13854820122">385-482-0122</a>
@@ -287,7 +287,7 @@ export default function PrivacyPolicyPage() {
               </p>
 
               <h3>Standard Messaging Disclosures</h3>
-              <ul>
+              <ul className="list-disc pl-6 my-4 space-y-1">
                 <li>Message and data rates may apply</li>
                 <li>You can opt out at any time by texting STOP</li>
                 <li>For help, text HELP or contact us directly</li>
@@ -299,7 +299,7 @@ export default function PrivacyPolicyPage() {
                 If you have any questions about this Privacy Policy, you can
                 contact us:
               </p>
-              <ul>
+              <ul className="list-disc pl-6 my-4 space-y-1">
                 <li>
                   Email:{" "}
                   <a href="mailto:support@volzpiano.com">
