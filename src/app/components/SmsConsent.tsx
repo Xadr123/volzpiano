@@ -27,7 +27,13 @@ export default function SmsConsent() {
           <strong className="text-zinc-800">Volz Method Piano Lessons</strong>{" "}
           related to scheduling, lesson reminders, and other lesson-related
           communication. You may reply STOP to opt out at any time. Reply
-          HELP to <strong className="text-zinc-800">[YOUR PHONE NUMBER]</strong>{" "}
+          HELP to{" "}
+          <a
+            href="tel:+13854820122"
+            className="font-semibold text-zinc-800 hover:underline"
+          >
+            385-482-0122
+          </a>{" "}
           for assistance. Messages and data rates may apply. Message
           frequency will vary. Learn more on our{" "}
           <Link
@@ -35,13 +41,6 @@ export default function SmsConsent() {
             className="font-semibold text-accent hover:underline"
           >
             privacy policy
-          </Link>{" "}
-          page and{" "}
-          <Link
-            href="/terms-conditions"
-            className="font-semibold text-accent hover:underline"
-          >
-            Terms &amp; Conditions
           </Link>
           .
         </span>
