@@ -41,6 +41,13 @@ export default function SmsConsent() {
             className="font-semibold text-accent hover:underline"
           >
             privacy policy
+          </Link>{" "}
+          page and{" "}
+          <Link
+            href="/privacy-policy-2"
+            className="font-semibold text-accent hover:underline"
+          >
+            Terms &amp; Conditions
           </Link>
           .
         </span>
