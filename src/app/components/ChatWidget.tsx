@@ -241,9 +241,12 @@ export default function ChatWidget() {
     }
   }, [messages, hasInteracted, isStreaming]);
 
-  // Auto-scroll to bottom on new messages
+  // Auto-scroll to bottom on new messages. Scroll ONLY the messages container
+  // (via scrollTop) — never scrollIntoView, which also scrolls the page/window
+  // and, on a fixed-position widget, yanks the whole panel out of view.
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    const container = messagesEndRef.current?.parentElement;
+    if (container) container.scrollTop = container.scrollHeight;
   }, [messages]);
 
   // Abort any in-flight chat fetch when the widget unmounts so we don't keep
@@ -252,13 +255,20 @@ export default function ChatWidget() {
     return () => abortRef.current?.abort();
   }, []);
 
-  // Show welcome message and focus input when panel opens
+  // Show welcome message and focus input when panel opens. Also jump the
+  // messages to the bottom on open — the auto-scroll effect can't run while the
+  // panel (and its container) is unmounted, so a restored conversation would
+  // otherwise open scrolled to the top.
   useEffect(() => {
     if (isOpen) {
       if (messages.length === 0) {
         setMessages([{ role: "assistant", content: getProactiveMessage(pathname) }]);
       }
-      setTimeout(() => inputRef.current?.focus(), 100);
+      setTimeout(() => {
+        inputRef.current?.focus();
+        const container = messagesEndRef.current?.parentElement;
+        if (container) container.scrollTop = container.scrollHeight;
+      }, 100);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
@@ -536,9 +546,11 @@ export default function ChatWidget() {
             Book your free 15-min call
           </a>
 
-          {/* Messages — a live region so screen readers announce new replies */}
+          {/* Messages — a live region so screen readers announce new replies.
+              min-h-0 is essential: without it this flex child won't shrink below
+              its content, so it grows the panel instead of scrolling internally. */}
           <div
-            className="flex-1 overflow-y-auto px-3 py-3 flex flex-col gap-2"
+            className="flex-1 min-h-0 overflow-y-auto px-3 py-3 flex flex-col gap-2"
             role="log"
             aria-live="polite"
             aria-relevant="additions"
