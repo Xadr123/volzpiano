@@ -6,6 +6,11 @@ function getClient() {
   return new OpenAI({
     apiKey: process.env.GROQ_API_KEY,
     baseURL: "https://api.groq.com/openai/v1",
+    // The SDK auto-retries transient failures (429 rate limit, 5xx) on the SAME
+    // model with backoff; our own loop below adds a fallback to a DIFFERENT model.
+    maxRetries: 2,
+    // Bound worst-case hangs (normal replies stream in a few seconds).
+    timeout: 60_000,
   });
 }
 
@@ -326,45 +331,76 @@ export async function POST(req: NextRequest) {
   //   - openai/gpt-oss-20b → AVOID: streams empty `content`.
   //   - groq/compound[-mini] → AVOID: errors with this request shape, and its
   //                          agentic web search is a liability for a brand bot.
-  const model = process.env.GROQ_MODEL || "qwen/qwen3.8-27b";
+  // Primary model, then a verified fallback (see bake-off above). If the primary
+  // errors BEFORE any tokens stream — typically a Groq rate-limit 429 under load
+  // — we retry on the fallback so a spike doesn't surface as an error to a parent.
+  const primaryModel = process.env.GROQ_MODEL || "qwen/qwen3.8-27b";
+  const fallbackModel = process.env.GROQ_FALLBACK_MODEL || "openai/gpt-oss-120b";
+  const candidateModels =
+    fallbackModel && fallbackModel !== primaryModel
+      ? [primaryModel, fallbackModel]
+      : [primaryModel];
+
+  const chatMessages = [
+    { role: "system" as const, content: systemPrompt },
+    ...forwardedMessages.map((m) => ({ role: m.role, content: m.content })),
+    // Defense layer 3: re-assert scope as the final instruction the model sees,
+    // so it outweighs anything slipped into the conversation above.
+    { role: "system" as const, content: GUARD_REMINDER },
+  ];
 
   const stream = new ReadableStream({
     async start(controller) {
       const encoder = new TextEncoder();
-      try {
+      let emittedAny = false;
+
+      const attempt = async (modelId: string) => {
         const completion = await getClient().chat.completions.create({
-          model,
+          model: modelId,
           max_tokens: 1024,
           stream: true,
-          messages: [
-            { role: "system", content: systemPrompt },
-            ...forwardedMessages.map((m) => ({ role: m.role, content: m.content })),
-            // Defense layer 3: re-assert scope as the final instruction the model
-            // sees, so it outweighs anything slipped into the conversation above.
-            { role: "system", content: GUARD_REMINDER },
-          ],
+          messages: chatMessages,
         });
-
         for await (const chunk of completion) {
           const text = chunk.choices[0]?.delta?.content ?? "";
           if (text) {
             controller.enqueue(encoder.encode(text));
+            emittedAny = true;
           }
         }
-      } catch (err) {
-        // Log the real error server-side for debugging, but NEVER leak a raw
-        // "[Error: ...]" string to a parent mid-conversation — it destroys trust
-        // and kills the lead. Fall back to a warm message that keeps the path to
-        // booking open.
-        console.error("[/api/chat] streaming error:", err);
+      };
+
+      let succeeded = false;
+      for (let i = 0; i < candidateModels.length; i++) {
+        try {
+          await attempt(candidateModels[i]);
+          succeeded = true;
+          break;
+        } catch (err) {
+          console.error(
+            `[/api/chat] model "${candidateModels[i]}" failed:`,
+            err instanceof Error ? err.message : err
+          );
+          // If tokens already reached the visitor, we can't cleanly restart on
+          // another model — stop rather than duplicate content.
+          if (emittedAny) break;
+          // Otherwise try the next candidate after a brief backoff.
+          if (i < candidateModels.length - 1) {
+            await new Promise((r) => setTimeout(r, 500));
+          }
+        }
+      }
+
+      // Only show the warm fallback if EVERY model failed before streaming a
+      // single token — never leak a raw error to a parent mid-conversation.
+      if (!succeeded && !emittedAny) {
         controller.enqueue(
           encoder.encode(
-            "\n\nSorry — I'm having a brief hiccup on my end. Please try again in a moment, or just [book a free call](/schedule-call) and we'll happily answer everything personally."
+            "Sorry — I'm having a brief hiccup on my end. Please try again in a moment, or just [book a free call](/schedule-call) and we'll happily answer everything personally."
           )
         );
-      } finally {
-        controller.close();
       }
+      controller.close();
     },
   });
 
