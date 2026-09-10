@@ -21,6 +21,25 @@ function track(event: string, params: Record<string, unknown> = {}) {
   window.dataLayer.push({ event, ...params });
 }
 
+// ─── Proactive-bubble suppression ─────────────────────────────────────────────
+// Once the visitor dismisses the proactive bubble or opens the chat, stay quiet
+// for the rest of the session instead of re-popping it on every page navigation.
+const PROACTIVE_KEY = "volz-chat-proactive-seen";
+function proactiveSeen(): boolean {
+  try {
+    return sessionStorage.getItem(PROACTIVE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+function markProactiveSeen() {
+  try {
+    sessionStorage.setItem(PROACTIVE_KEY, "1");
+  } catch {
+    /* storage unavailable — bubble will simply behave as before */
+  }
+}
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 interface Message {
@@ -193,7 +212,6 @@ export default function ChatWidget() {
   const [inputValue, setInputValue] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
   const [proactiveShown, setProactiveShown] = useState(false);
-  const [proactiveDismissed, setProactiveDismissed] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -273,13 +291,15 @@ export default function ChatWidget() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
-  // Proactive bubble: show after a short delay on each page change
+  // Proactive bubble: show a short delay after a page settles — but only if the
+  // visitor hasn't already dismissed it or opened the chat this session (so it
+  // doesn't nag them by re-popping on every page they browse).
   useEffect(() => {
     setProactiveShown(false);
-    setProactiveDismissed(false);
+    if (isOpen || proactiveSeen()) return;
 
     const timer = setTimeout(() => {
-      if (!isOpen) {
+      if (!isOpen && !proactiveSeen()) {
         setProactiveShown(true);
       }
     }, 1000);
@@ -288,10 +308,12 @@ export default function ChatWidget() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
-  // Dismiss proactive bubble when panel opens, and log the open for the funnel.
+  // When the panel opens: hide the bubble, mark it seen for the session, and log
+  // the open for the funnel.
   useEffect(() => {
     if (isOpen) {
       setProactiveShown(false);
+      markProactiveSeen();
       track("chat_opened", { path: pathname });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -391,8 +413,8 @@ export default function ChatWidget() {
   // ── Proactive Bubble Click ────────────────────────────────────────────────────
 
   const handleProactiveClick = useCallback(() => {
-    setProactiveDismissed(true);
     setProactiveShown(false);
+    markProactiveSeen();
     setIsOpen(true);
     // Only seed the welcome message if there's no conversation yet — never
     // overwrite one restored from a previous visit (matches the open-effect).
@@ -445,7 +467,7 @@ export default function ChatWidget() {
   return (
     <>
       {/* Proactive Bubble */}
-      {proactiveShown && !proactiveDismissed && !isOpen && (
+      {proactiveShown && !isOpen && (
         <div
           className="fixed bottom-24 right-6 z-50 max-w-[280px] cursor-pointer select-none"
           onClick={handleProactiveClick}
@@ -467,8 +489,8 @@ export default function ChatWidget() {
           <button
             onClick={(e) => {
               e.stopPropagation();
-              setProactiveDismissed(true);
               setProactiveShown(false);
+              markProactiveSeen();
             }}
             className="absolute -top-2 -right-2 h-5 w-5 rounded-full bg-zinc-700 text-white/60 hover:text-white flex items-center justify-center text-xs shadow cursor-pointer"
             aria-label="Dismiss"
