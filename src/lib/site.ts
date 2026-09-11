@@ -33,3 +33,18 @@ export const OG_IMAGE = {
 
 /** Spread into a page's `openGraph.images` to keep the default preview card. */
 export const OG_IMAGES = [OG_IMAGE];
+
+/**
+ * Google Business Profile rating, quoted both in the LocalBusiness JSON-LD and
+ * in visible copy on the landing pages. Kept here because those two used to
+ * hold their own hardcoded copies — the structured data claiming one number
+ * while the page on screen claimed another is exactly the kind of mismatch
+ * that gets structured data ignored. Update in this one place.
+ *
+ * Note that Google does not render star snippets from a business's own
+ * AggregateRating markup for LocalBusiness — the stars shown in search come
+ * from the Business Profile itself. This markup is for entity understanding,
+ * not for rich results.
+ */
+export const RATING = "5.0";
+export const REVIEW_COUNT = "134";

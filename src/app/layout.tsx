@@ -5,7 +5,13 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { serializeJsonLd } from "@/lib/json-ld";
-import { SITE_URL, OG_IMAGE, OG_IMAGES } from "@/lib/site";
+import {
+  SITE_URL,
+  OG_IMAGE,
+  OG_IMAGES,
+  RATING,
+  REVIEW_COUNT,
+} from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -111,9 +117,9 @@ export default function RootLayout({
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "5.0",
+      ratingValue: RATING,
       bestRating: "5",
-      ratingCount: "134",
+      ratingCount: REVIEW_COUNT,
     },
   };
 
