@@ -9,7 +9,8 @@ const SLUG = "how-to-motivate-your-child-to-practice-piano";
 const CANONICAL = `/${SLUG}`;
 
 export const metadata: Metadata = {
-  title: TITLE,
+  // `absolute` — see the note on the sibling article layouts.
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   alternates: { canonical: CANONICAL },
   openGraph: {

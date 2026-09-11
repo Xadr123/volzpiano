@@ -9,7 +9,10 @@ const SLUG = "piano-lessons-vs-apps";
 const CANONICAL = `/${SLUG}`;
 
 export const metadata: Metadata = {
-  title: TITLE,
+  // `absolute` for the same reason as the data-driven posts: these are blog
+  // articles with long descriptive titles, and the root template's
+  // 28-character brand suffix only ever got truncated off the end.
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   alternates: { canonical: CANONICAL },
   openGraph: {
