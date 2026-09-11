@@ -81,24 +81,35 @@ function fullyDecodeSlug(slug: string): string {
  * The result was seven published posts serving a hard 404 while still being
  * listed in the sitemap and linked from the blog index.
  *
- * Decoding both sides to a fixed point collapses all three spellings onto the
- * same string, which fixes the lookup without changing a single URL — the
- * legacy WordPress addresses keep working exactly as they are. Verified
- * collision-free across the corpus: all 229 slugs stay distinct once fully
- * decoded, and slugs without a `%` are returned untouched.
+ * So the index below holds up to two keys per post — the slug exactly as
+ * stored, and its fully-decoded spelling — which lets a lookup resolve any of
+ * those three forms without changing a single URL. The legacy WordPress
+ * addresses keep working exactly as they are, and the canonical tag is always
+ * built from the stored slug, so encoding variants consolidate rather than
+ * competing. Verified collision-free across the corpus: all 229 slugs stay
+ * distinct once fully decoded, and slugs without a `%` are untouched.
  */
-function slugMatches(stored: string, requested: string): boolean {
-  return (
-    stored === requested ||
-    fullyDecodeSlug(stored) === fullyDecodeSlug(requested)
-  );
+const postsBySlug = new Map<string, BlogPost>();
+
+// Exact stored slugs first, so they always win the key.
+for (const post of allPosts) postsBySlug.set(post.slug, post);
+// Then the decoded spelling of the seven that need it, without ever
+// displacing a post that genuinely owns that slug.
+for (const post of allPosts) {
+  const decoded = fullyDecodeSlug(post.slug);
+  if (decoded !== post.slug && !postsBySlug.has(decoded)) {
+    postsBySlug.set(decoded, post);
+  }
 }
 
 export function getPostBySlug(
   slug: string,
   now: Date = new Date()
 ): BlogPost | undefined {
-  const post = allPosts.find((p) => slugMatches(p.slug, slug));
+  // Try the slug as given, then its decoded form. Indexing up front keeps
+  // this O(1) — matching by scanning would re-decode all 229 stored slugs on
+  // every lookup, once per page, on every build.
+  const post = postsBySlug.get(slug) ?? postsBySlug.get(fullyDecodeSlug(slug));
   if (!post) return undefined;
   if (!isPublished(post, now)) return undefined;
   return post;
