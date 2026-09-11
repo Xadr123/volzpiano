@@ -11,6 +11,7 @@ import {
   OG_IMAGES,
   RATING,
   REVIEW_COUNT,
+  GA_ID,
 } from "@/lib/site";
 
 const inter = Inter({
@@ -146,7 +147,9 @@ export default function RootLayout({
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'AW-755139969');`}
+gtag('config', 'AW-755139969');${
+            GA_ID ? `\ngtag('config', '${GA_ID}');` : ""
+          }`}
         </Script>
       </body>
     </html>

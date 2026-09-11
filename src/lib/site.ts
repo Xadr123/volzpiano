@@ -48,3 +48,21 @@ export const OG_IMAGES = [OG_IMAGE];
  */
 export const RATING = "5.0";
 export const REVIEW_COUNT = "134";
+
+/**
+ * GA4 measurement ID, e.g. "G-ABC1234567".
+ *
+ * The site already loads gtag.js for Google Ads (AW-755139969) but has never
+ * had an analytics property attached, so there is no record of which pages or
+ * queries bring people in. Setting `NEXT_PUBLIC_GA_ID` in Vercel adds a second
+ * `gtag('config', ...)` to the tag that is already on every page — no extra
+ * request, and the CSP already allows google-analytics.com. Unset, this is
+ * `null` and nothing is emitted.
+ *
+ * The value is interpolated into an inline script, so it is format-checked
+ * rather than trusted: anything that is not a well-formed measurement ID is
+ * ignored instead of being written into the page.
+ */
+const rawGaId = process.env.NEXT_PUBLIC_GA_ID?.trim();
+export const GA_ID =
+  rawGaId && /^G-[A-Z0-9]{4,20}$/.test(rawGaId) ? rawGaId : null;
