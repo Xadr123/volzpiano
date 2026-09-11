@@ -5,7 +5,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { serializeJsonLd } from "@/lib/json-ld";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, OG_IMAGE, OG_IMAGES } from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -47,21 +47,14 @@ export const metadata: Metadata = {
     title: "Volz Method Piano Lessons | In-Home Piano Lessons in Utah",
     description:
       "In-home piano lessons across Utah and Idaho. Our teachers drive to your house. The Volz Method meets every child where they are.",
-    images: [
-      {
-        url: "/hero-bg.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Volz Method Piano Lessons — in-home piano lessons in Utah",
-      },
-    ],
+    images: OG_IMAGES,
   },
   twitter: {
     card: "summary_large_image",
     title: "Volz Method Piano Lessons | In-Home Piano Lessons in Utah",
     description:
       "In-home piano lessons across Utah and Idaho. The Volz Method teaches the music your child wants to play.",
-    images: ["/hero-bg.jpg"],
+    images: [OG_IMAGE.url],
   },
   robots: {
     index: true,
@@ -92,7 +85,7 @@ export default function RootLayout({
     alternateName: "Volz Piano",
     url: SITE_URL,
     logo: `${SITE_URL}/icon.svg`,
-    image: `${SITE_URL}/hero-bg.jpg`,
+    image: `${SITE_URL}${OG_IMAGE.url}`,
     description:
       "In-home piano lessons across Utah and Idaho. The Volz Method tailors every lesson to how each child naturally learns — reading, composing, hearing, and arranging.",
     areaServed: [

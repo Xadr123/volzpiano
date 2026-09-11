@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { serializeJsonLd } from "@/lib/json-ld";
+import { OG_IMAGES } from "@/lib/site";
 
 const TITLE = "Piano Lessons vs. Piano Apps: What Actually Works for Kids?";
 const DESCRIPTION =
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: CANONICAL,
     type: "article",
+    images: OG_IMAGES,
   },
   twitter: {
     card: "summary_large_image",
