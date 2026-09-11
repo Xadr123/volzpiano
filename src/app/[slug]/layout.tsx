@@ -34,7 +34,15 @@ export async function generateMetadata({
   const imageRelative = post.image || undefined;
 
   return {
-    title: post.title,
+    // `absolute` opts out of the root layout's "%s | Volz Method Piano
+    // Lessons" template. These imported posts carry long, descriptive titles
+    // (median 68 characters, and they double as the on-page H1), so appending
+    // a 28-character brand suffix pushed the rendered title to a median of 96
+    // — well past the ~60 Google displays. The suffix sits at the end, so it
+    // was the part being truncated: it cost every post 28 characters of the
+    // title budget and never actually appeared. Marketing pages are shorter
+    // and keep the template.
+    title: { absolute: post.title },
     description: post.description,
     alternates: { canonical },
     openGraph: {

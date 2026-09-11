@@ -22,6 +22,7 @@
 import csvPosts from "@/content/blog-posts.json";
 import extraPosts from "@/content/blog-posts-extra.json";
 import { getPostBySlug, getPublishedPosts } from "@/lib/blog";
+import { generateMetadata } from "@/app/[slug]/layout";
 
 type StoredPost = { slug: string; title: string };
 
@@ -129,5 +130,44 @@ describe("blog slug resolution", () => {
     // The 404s were invisible partly because these posts *are* published and
     // do appear in the index and sitemap — only the lookup failed.
     expect(getPublishedPosts().length).toBe(allPosts.length);
+  });
+});
+
+describe("blog post metadata", () => {
+  const metaFor = (slug: string) =>
+    generateMetadata({ params: Promise.resolve({ slug }) });
+
+  it("sets an absolute title so the brand template can't truncate it", async () => {
+    // The root template appends " | Volz Method Piano Lessons" (28 chars).
+    // These titles are long enough that the suffix was always the part Google
+    // cut, so it spent title budget without ever being seen.
+    const post = allPosts[0];
+    const meta = await metaFor(post.slug);
+    expect(meta.title).toEqual({ absolute: post.title });
+  });
+
+  it("keeps every rendered title free of the brand suffix", async () => {
+    const withSuffix: string[] = [];
+    for (const post of allPosts) {
+      const meta = await metaFor(post.slug);
+      const title = (meta.title as { absolute?: string })?.absolute;
+      if (!title || title.includes("| Volz Method Piano Lessons")) {
+        withSuffix.push(post.slug);
+      }
+    }
+    expect(withSuffix).toEqual([]);
+  });
+
+  it("produces real metadata for the previously-404ing encoded slugs", async () => {
+    for (const slug of ENCODED_SLUGS) {
+      // Ask the way the router does at runtime — already decoded.
+      const meta = await metaFor(asRuntimeParam(slug));
+      const title = (meta.title as { absolute?: string })?.absolute;
+      expect(title).toBeTruthy();
+      expect(meta.description).toBeTruthy();
+      // The old failure mode returned {}, which let the canonical fall back to
+      // the site root — telling Google the post *was* the homepage.
+      expect(meta.alternates?.canonical).toBe(`/${slug}`);
+    }
   });
 });
